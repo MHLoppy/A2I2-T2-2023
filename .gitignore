@@ -1,2 +1,5 @@
-/intern-t2-2023.ipynb
+/.conda/
+/evals/
+/temp/
+/dataset_pickled.pkl
 /secrets.json
