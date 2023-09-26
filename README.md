@@ -2,7 +2,7 @@ A2I2 T2 2023 - Stack Overflow: human vs AI answers.
 
 Code is split across multiple files:
 1. First, choose to source data from either Google BigQuery or from a database created using Stack Exchange Data Dump files.
-    - If using BigQuery, run `bigquery_data_extraction.ipynb`.
+    - If using BigQuery, run `bigquery_data_extraction.ipynb`. <TODO> note that the query is slightly different (legacy code)
     - If using SEDD, first set up a local MySQL database, such as using [these instructions for Windows](https://www.w3schools.com/mysql/mysql_install_windows.asp). Download the SEDD files relating to Stack Overflow (BitTorrent is recommended for speed) and extract them. Run the <TODO> script in your database program (e.g., MySQL Workbench) to create the database. Note that the script will need to be updated to have the correct file paths to the extracted SEDD files. TODO: note that not EVERYTHING there is strictly needed (could download less files, import less files, and then have a smaller database).
 2. Optionally run <TODO> for basic dataset analysis and visualizations.
 3. Lastly, run <TODO> which will handle data pre-processing, fetching GPT answers, and running evals.
