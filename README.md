@@ -1,5 +1,6 @@
-### A2I2 T2 2023
-#### (GPT vs Stack Overflow: data collection)
+### A2I2 T2 2023 (GPT vs Stack Overflow: data collection)
+
+---
 
 This repo can be used to create a large dataset of Stack Overflow (SO) questions with corresponding:
 - SO accepted answers
