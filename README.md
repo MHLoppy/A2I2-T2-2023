@@ -33,7 +33,12 @@ Code is split across multiple files:
 #### Usage notes
 
 - Please note that `data_processing.ipynb` forcefully re-clones the evals installation each time it runs (i.e., it deletes / overwrites existing evals files). It also generates new JSONL sample files (used by evals), overwriting previously generated files. If you want to avoid this from happening, you can comment out the relevant lines after the notebook has been run for the first time.
-- 
+- The model used is GPT-4, but this shoud be relatively easy to change to a different OpenAI model.
+- The default size of the dataset subsampling is 10, which is intentionally small so as to not burn credit when testing the file. It can be changed to any arbitrary number or percentage.
+- HTML tags are stripped from all text prior to using the text in both the OpenAI API and evals. This includes the GPT response received. The original (unstripped) and stripped versions of the relevant fields are saved in separate columns in the dataframe.
+- Token limits have been semi-arbitrarily set at 4K for the combined SO title, question, and accepted answer, and 2K for the GPT response. This leaves roughly 2K for the evaluation response with GPT-4's token limit of ~8K.
+- After initial pre-processing, the main dataframe is broken into chunks in order to perform both OpenAI API requests and evaluations in batches. The default number of chunks is 10, but this is arbitrary and can be changed (although see below).
+- **The way that rows are skipped when the token limits are reached and how they're subsequently handled is not very robust, and may lead to undesirable or unexpected behaviour if batch size does not equal subsample size.** For sufficiently large subsamples, it's possible that it may still not play nicely even if batch size DOES equal subsample size. This is due to quirks in a tiny minority of questions or answers being data processing minefields.
 
 #### SO Dataset creation - Stack Exchange Data Dump
 
