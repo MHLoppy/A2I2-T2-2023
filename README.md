@@ -23,7 +23,7 @@ Code is split across multiple files:
 ### Usage Instructions
 
 1. Acquire the `saved_dataset.csv` file and have it in the root directory. The easy way to get this file is to use our provided copy <TODO: add link here>. Alternatively, generate the file yourself using ONE of the two methods outlined below.
-2. Put your [OpenAI API key](https://platform.openai.com/account/api-keys) in the secrets.json file (secrets_example.json is provided for reference).
+2. Put your [OpenAI API key](https://platform.openai.com/account/api-keys) in a `secrets.json` file in the root directory (`secrets_example.json` is provided for reference).
 3. Install [Git Large File Storage](https://git-lfs.com/), which is required by evals.
 4. Optionally run `data_analysis.ipynb`.
 5. In the root directory, the following folders currently need to be created manually: `eval_logs`, `eval_records`, `eval_samples`.
@@ -49,7 +49,7 @@ Note that in this process, there are additional, unused files being downloaded a
 _This step is only required if you want to generate the raw SO dataset yourself using Google BigQuery instead of using our provided copy. Doing this is not recommended due to the age of the BigQuery dataset!_
 
 1. Set up authentication for the Google BigQuery API, such as by having [user credentials in the local environment](https://cloud.google.com/docs/authentication/provide-credentials-adc#local-user-cred).
-2. Create a BigQuery project (e.g. via the BigQuery web interface). Put the project name in the secrets.json file (secrets_example.json is provided for reference).
+2. Create a BigQuery project (e.g. via the BigQuery web interface). Put the project name in a `secrets.json` file in the root directory (`secrets_example.json` is provided for reference).
 3. Run `bigquery_data_extraction.ipynb`. This will generate the `saved_dataset.csv` file.
 
 ---
