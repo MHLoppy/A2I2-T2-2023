@@ -6,3 +6,6 @@
 /.ipynb_checkpoints/
 /saved_dataset.csv
 /tag_count.csv
+/eval_logs/
+/eval_records/
+/eval_samples/
