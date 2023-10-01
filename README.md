@@ -17,8 +17,6 @@ Code is split across multiple files:
 
 `bigquery_data_extraction.ipynb` is an alternative way of pulling SO data and generating the corresponding `saved_dataset.csv` file using Google BigQuery instead of a local database. It is considered legacy code and not recommended for serious use because the BigQuery SO dataset has evidently not been keeping up with its planned quarterly dataset update. Note also that the database query in this file differs slightly due to the file's legacy status. 
 
----
-
 ## Usage Instructions
 
 1. Acquire the `saved_dataset.csv` file and have it in the root directory. The easy way to get this file is to use our provided copy <TODO: add link here>. Alternatively, generate the file yourself using ONE of the two methods outlined below.
@@ -61,8 +59,6 @@ _This step is only required if you want to generate the raw SO dataset yourself 
 - In our experience, evals can be _extremely_ fussy about the environment it's installed in. If having problems with evals, consider creating a new, minimal Python environment (without additional packages installed on creation).
 - There are several implicit dependencies in the notebooks (e.g., pandas, numpy, etc). This may be relevant if using a new, minimal Python environment to avoid the wrath of evals. Because the packages installed in the notebook share these dependencies, you should be able to handle the implicit dependencies by manually separating out any `%pip install ` commands and running them before running each of the notebooks proper.
 - In some environments, evals will (for unknown reasons) not recognize a valid, working OpenAI API key as existing. In this case, you can spoonfeed the API key in-line with the evals query itself e.g.: `!export OPENAI_API_KEY="ab-cd123"; openaieval gpt-3.5-turbo coqa-fact"`
-
----
 
 ## License
 <TODO: license>
