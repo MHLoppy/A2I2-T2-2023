@@ -1,6 +1,4 @@
-### A2I2 T2 2023 (GPT vs Stack Overflow: data collection)
-
----
+# A2I2 T2 2023 - GPT vs Stack Overflow: data collection
 
 This repo can be used to create a large dataset of Stack Overflow (SO) questions with corresponding:
 - SO accepted answers
@@ -21,16 +19,16 @@ Code is split across multiple files:
 
 ---
 
-### Usage Instructions
+## Usage Instructions
 
 1. Acquire the `saved_dataset.csv` file and have it in the root directory. The easy way to get this file is to use our provided copy <TODO: add link here>. Alternatively, generate the file yourself using ONE of the two methods outlined below.
 2. Put your [OpenAI API key](https://platform.openai.com/account/api-keys) in a `secrets.json` file in the root directory (`secrets_example.json` is provided for reference).
 3. Install [Git Large File Storage](https://git-lfs.com/), which is required by evals.
 4. Optionally run `dataset_analysis.ipynb`.
 5. In the root directory, the following folders currently need to be created manually: `eval_logs`, `eval_records`, `eval_samples`.
-6. Run `data_processing.ipynb`.
+6. Run `data_processing.ipynb`. This will generate the `dataset_results.csv` file.
 
-#### Usage notes
+### Usage notes
 
 - Please note that `data_processing.ipynb` forcefully re-clones the evals installation each time it runs (i.e., it deletes / overwrites existing evals files). It also generates new JSONL sample files (used by evals), overwriting previously generated files. If you want to avoid this from happening, you can comment out the relevant lines after the notebook has been run for the first time.
 - The model used is GPT-4, but this shoud be relatively easy to change to a different OpenAI model.
@@ -40,7 +38,7 @@ Code is split across multiple files:
 - After initial pre-processing, the main dataframe is broken into chunks in order to perform both OpenAI API requests and evaluations in batches. The default number of chunks is 10, but this is arbitrary and can be changed (although see below).
 - **The way that rows are skipped when the token limits are reached and how they're subsequently handled is not very robust, and may lead to undesirable or unexpected behaviour if batch size does not equal subsample size.** For sufficiently large subsamples, it's possible that it may still not play nicely even if batch size DOES equal subsample size. This is due to quirks in a tiny minority of questions or answers being data processing minefields.
 
-#### SO Dataset creation - Stack Exchange Data Dump
+### SO Dataset creation - Stack Exchange Data Dump
 
 _This step is only required if you want to generate the raw SO dataset yourself using the Stack Exchange Data Dump instead of using our provided copy._
 1. Download the Stack Overflow archives from the [Stack Exchange Data Dump](https://archive.org/details/stackexchange) (BitTorrent is recommended for speed reasons). Each Stack Exchange website has its own set of archives.
@@ -50,7 +48,7 @@ _This step is only required if you want to generate the raw SO dataset yourself 
 
 Note that in this process, there are additional, unused files being downloaded and imported into the database. If you are not using the information in these files in any way, you may optionally choose to not download these extra files, and modify the database import script to not include these files in your database.
 
-#### SO Dataset creation - Google BigQuery
+### SO Dataset creation - Google BigQuery
 
 _This step is only required if you want to generate the raw SO dataset yourself using Google BigQuery instead of using our provided copy. Doing this is not recommended due to the age of the BigQuery dataset!_
 
@@ -58,20 +56,20 @@ _This step is only required if you want to generate the raw SO dataset yourself 
 2. Create a BigQuery project (e.g. via the BigQuery web interface). Put the project name in a `secrets.json` file in the root directory (`secrets_example.json` is provided for reference).
 3. Run `bigquery_data_extraction.ipynb`. This will generate the `saved_dataset.csv` file.
 
----
-
-### Troubleshooting
+## Troubleshooting
 
 - In our experience, evals can be _extremely_ fussy about the environment it's installed in. If having problems with evals, consider creating a new, minimal Python environment (without additional packages installed on creation).
 - There are several implicit dependencies in the notebooks (e.g., pandas, numpy, etc). This may be relevant if using a new, minimal Python environment to avoid the wrath of evals. Because the packages installed in the notebook share these dependencies, you should be able to handle the implicit dependencies by manually separating out any `%pip install ` commands and running them before running each of the notebooks proper.
 - In some environments, evals will (for unknown reasons) not recognize a valid, working OpenAI API key as existing. In this case, you can spoonfeed the API key in-line with the evals query itself e.g.: `!export OPENAI_API_KEY="ab-cd123"; openaieval gpt-3.5-turbo coqa-fact"`
 
-### License
+---
+
+## License
 <TODO: license>
 
 <TODO: unless license is MIT, the database import script should be separately licensed with MIT>
 
-### Credits
+## Credits
 - The MySQL database import script was created by Georgios Gousios, with additional contributions by tundo91, Roel Van de Paar (RoelVdP), and myself (Mark Heath / MHLoppy). It is available under the MIT (Expat) License.
 - My code builds on prior work at the Applied Artificial Intelligence Institute (A2I2) by [Gia Phu Tran (Harvey)](https://github.com/phulelouch).
 - Special thanks to everyone at A2I2 who assisted in my efforts, particularly my supervisors Anj Simmons and Zafaryab Rasool.
