@@ -13,8 +13,8 @@ From here, a random subsample is chosen, and the following are added to this sub
 This dataset can then be used for further research in evaluating GPT vs human performance within the context of the programming questions provided by Stack Overflow.
 
 Code is split across multiple files:
-1.  `mysql_data_extraction.ipynb` pulls SO data and export it into a CSV file called `saved_dataset.csv`. This file feeds into both `data_analysis.ipynb` and `data_processing.ipynb`.
-2. `data_analysis.ipynb` performs some rudimentary data analysis on the raw dataset provided. Running it is optional, as it runs independently of the data processing step. It will read from `tag_count.csv`, or generate this file if it doesn't already exist by counting the quantity of tags found in `saved_dataset.csv`.
+1.  `mysql_data_extraction.ipynb` pulls SO data and export it into a CSV file called `saved_dataset.csv`. This file feeds into both `dataset_analysis.ipynb` and `data_processing.ipynb`.
+2. `dataset_analysis.ipynb` performs some rudimentary data analysis on the raw dataset provided. Running it is optional, as it runs independently of the data processing step. It will read from `tag_count.csv`, or generate this file if it doesn't already exist by counting the quantity of tags found in `saved_dataset.csv`.
 3. `data_processing.ipynb` runs OpenAI and evals queries, and performs all necessary data processing and pre-processing to do so.
 
 `bigquery_data_extraction.ipynb` is an alternative way of pulling SO data and generating the corresponding `saved_dataset.csv` file using Google BigQuery instead of a local database. It is considered legacy code and not recommended for serious use because the BigQuery SO dataset has evidently not been keeping up with its planned quarterly dataset update. Note also that the database query in this file differs slightly due to the file's legacy status. 
@@ -26,7 +26,7 @@ Code is split across multiple files:
 1. Acquire the `saved_dataset.csv` file and have it in the root directory. The easy way to get this file is to use our provided copy <TODO: add link here>. Alternatively, generate the file yourself using ONE of the two methods outlined below.
 2. Put your [OpenAI API key](https://platform.openai.com/account/api-keys) in a `secrets.json` file in the root directory (`secrets_example.json` is provided for reference).
 3. Install [Git Large File Storage](https://git-lfs.com/), which is required by evals.
-4. Optionally run `data_analysis.ipynb`.
+4. Optionally run `dataset_analysis.ipynb`.
 5. In the root directory, the following folders currently need to be created manually: `eval_logs`, `eval_records`, `eval_samples`.
 6. Run `data_processing.ipynb`.
 
