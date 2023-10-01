@@ -32,9 +32,10 @@ Code is split across multiple files:
 - The model used is GPT-4, but this shoud be relatively easy to change to a different OpenAI model.
 - The default size of the dataset subsampling is 10, which is intentionally small so as to not burn credit when testing the file. It can be changed to any arbitrary number or percentage.
 - HTML tags are stripped from all text prior to using the text in both the OpenAI API and evals. This includes the GPT response received. The original (unstripped) and stripped versions of the relevant fields are saved in separate columns in the dataframe.
-- Token limits have been semi-arbitrarily set at 4K for the combined SO title, question, and accepted answer, and 2K for the GPT response. This leaves roughly 2K for the evaluation response with GPT-4's token limit of ~8K.
+- Token limits have been semi-arbitrarily set at 4K for the combined SO title, question, and accepted answer, and 2K for the GPT response. With GPT-4's token limit of ~8K, this leaves roughly 2K for the evaluation response.
 - After initial pre-processing, the main dataframe is broken into chunks in order to perform both OpenAI API requests and evaluations in batches. The default number of chunks is 10, but this is arbitrary and can be changed (although see below).
 - **The way that rows are skipped when the token limits are reached and how they're subsequently handled is not very robust, and may lead to undesirable or unexpected behaviour if batch size does not equal subsample size.** For sufficiently large subsamples, it's possible that it may still not play nicely even if batch size DOES equal subsample size. This is due to quirks in a tiny minority of questions or answers being data processing minefields.
+- No new eval is registered and used by evals in this code. Instead, the default `coqa-fact` eval is repurposed by replacing the `samples.jsonl` file it uses.
 
 ### SO Dataset creation - Stack Exchange Data Dump
 
