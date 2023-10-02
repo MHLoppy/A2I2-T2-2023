@@ -11,7 +11,7 @@ From here, a random subsample is chosen, and the following are added to this sub
 This dataset can then be used for further research in evaluating GPT vs human performance within the context of the programming questions provided by Stack Overflow.
 
 Code is split across multiple files:
-1.  `mysql_data_extraction.ipynb` pulls SO data and export it into a CSV file called `saved_dataset.csv`. This file feeds into both `dataset_analysis.ipynb` and `data_processing.ipynb`.
+1.  `mysql_data_extraction.ipynb` pulls SO data and exports it into a CSV file called `saved_dataset.csv`. This file feeds into both `dataset_analysis.ipynb` and `data_processing.ipynb`.
 2. `dataset_analysis.ipynb` performs some rudimentary data analysis on the raw dataset provided. Running it is optional, as it runs independently of the data processing step. It will read from `tag_count.csv`, or generate this file if it doesn't already exist by counting the quantity of tags found in `saved_dataset.csv`.
 3. `data_processing.ipynb` runs OpenAI and evals queries, and performs all necessary data processing and pre-processing to do so.
 
