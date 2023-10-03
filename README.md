@@ -8,7 +8,9 @@ From here, a random subsample is chosen, and the following are added to this sub
 - GPT-4 answers (via OpenAI API)
 - GPT-4 evaluation between the human and GPT answer (via OpenAI evals)
 
-This dataset can then be used for further research in evaluating GPT vs human performance within the context of the programming questions provided by Stack Overflow.
+**The resulting dataset is available here <TODO: LINK>.** This dataset can then be used for further research in evaluating GPT vs human performance within the context of the programming questions provided by Stack Overflow.
+
+## File overview
 
 Code is split across multiple files:
 1.  `mysql_data_extraction.ipynb` pulls SO data and exports it into a CSV file called `saved_dataset.csv`. This file feeds into both `dd_dataset_analysis.ipynb` and `data_processing.ipynb`.
