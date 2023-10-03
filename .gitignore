@@ -1,2 +1,12 @@
-/intern-t2-2023.ipynb
+/.conda/
+/evals/
+/temp/
+/dataset_pickled.pkl
 /secrets.json
+/.ipynb_checkpoints/
+/saved_dataset.csv
+/tag_count.csv
+/eval_logs/
+/eval_records/
+/eval_samples/
+/dataset_results.csv
