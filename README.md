@@ -64,7 +64,7 @@ _This step is only required if you want to generate the raw SO dataset yourself 
 - In some environments, evals will (for unknown reasons) not recognize a valid, working OpenAI API key as existing. In this case, you can spoonfeed the API key in-line with the evals query itself e.g.: `!export OPENAI_API_KEY="ab-cd123"; openaieval gpt-3.5-turbo coqa-fact"`
 
 ## License
-Code available under MIT License (Expact License).
+Code available under MIT License (Expat License).
 
 The associated dataset is licensed under [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/).
 
