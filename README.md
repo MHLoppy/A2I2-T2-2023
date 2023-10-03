@@ -14,7 +14,7 @@ This can then be used for further research in evaluating GPT vs human performanc
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8403468.svg)](https://doi.org/10.5281/zenodo.8403468)
 
-**>>> The associated dataset with this repo is available [here](https://doi.org/10.5281/zenodo.8403468). <<<**
+**>>> The dataset associated with this repo is available [here](https://doi.org/10.5281/zenodo.8403468). <<<**
 
 ## File overview
 
