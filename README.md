@@ -8,7 +8,13 @@ From here, a random subsample is chosen, and the following are added to this sub
 - GPT-4 answers (via OpenAI API)
 - GPT-4 evaluation between the human and GPT answer (via OpenAI evals)
 
-**The resulting dataset is available [here](https://doi.org/10.5281/zenodo.8403468).** This dataset can then be used for further research in evaluating GPT vs human performance within the context of the programming questions provided by Stack Overflow.
+This can then be used for further research in evaluating GPT vs human performance within the context of the programming questions provided by Stack Overflow.
+
+## Dataset download
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8403468.svg)](https://doi.org/10.5281/zenodo.8403468)
+
+**>>> The associated dataset with this repo is available [here](https://doi.org/10.5281/zenodo.8403468). <<<**
 
 ## File overview
 
@@ -21,7 +27,7 @@ Code is split across multiple files:
 
 ## Usage Instructions
 
-1. Acquire the `saved_dataset.csv` file and have it in the root directory. The easy way to get this file is to use our provided copy (download and extract `DD_saved_dataset.zip` from the above link). Alternatively, generate the file yourself using ONE of the two methods outlined below.
+1. Acquire the `saved_dataset.csv` file and have it in the root directory. The easy way to get this file is to use our provided copy (download and extract `DD_saved_dataset.zip` from the DOI above). Alternatively, generate the file yourself using ONE of the two methods outlined below.
 2. Put your [OpenAI API key](https://platform.openai.com/account/api-keys) in a `secrets.json` file in the root directory (`secrets_example.json` is provided for reference).
 3. Install [Git Large File Storage](https://git-lfs.com/), which is required by evals.
 4. Optionally run `dd_dataset_analysis.ipynb`. This will generate some stats and charts in the notebook's output, plus save `tag_count.csv` to file if one doesn't already exist.
