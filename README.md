@@ -65,7 +65,7 @@ _This step is only required if you want to generate the raw SO dataset yourself 
 
 ## Troubleshooting
 
-- In our experience, evals can be _extremely_ fussy about the environment it's installed in. If having problems with evals, consider creating a new, minimal Python environment (without additional packages installed on creation).
+- In our experience, evals can be _extremely_ fussy about the environment it's installed in. If having problems with evals, consider creating a new, minimal Python environment (without additional packages installed on creation). OpenAI's developers [primarily use Mac systems], so you are also more likely to encounter issues on e.g. Windows windows as a result.
 - There are several implicit dependencies in the notebooks (e.g., pandas, numpy, etc). This may be relevant if using a new, minimal Python environment to avoid the wrath of evals. Because the packages installed in the notebook share these dependencies, you should be able to handle the implicit dependencies by manually separating out any `%pip install ` commands and running them before running each of the notebooks proper.
 - In some environments, evals will (for unknown reasons) not recognize a valid, working OpenAI API key as existing. In this case, you can spoonfeed the API key in-line with the evals query itself e.g.: `!export OPENAI_API_KEY="ab-cd123"; openaieval gpt-3.5-turbo coqa-fact"`
 
